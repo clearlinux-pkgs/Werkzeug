@@ -1,4 +1,5 @@
 PKG_NAME := Werkzeug
-URL := https://pypi.python.org/packages/source/W/Werkzeug/Werkzeug-0.9.6.tar.gz
+URL := https://pypi.python.org/packages/source/W/Werkzeug/Werkzeug-0.10.4.tar.gz
+ARCHIVES :=
 
 include ../common/Makefile.common

@@ -4,7 +4,7 @@
 #
 Name     : Werkzeug
 Version  : 0.11.8
-Release  : 23
+Release  : 24
 URL      : https://pypi.python.org/packages/source/W/Werkzeug/Werkzeug-0.11.8.tar.gz
 Source0  : https://pypi.python.org/packages/source/W/Werkzeug/Werkzeug-0.11.8.tar.gz
 Summary  : The Swiss Army knife of Python web development

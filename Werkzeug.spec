@@ -4,12 +4,13 @@
 #
 Name     : Werkzeug
 Version  : 0.12.2
-Release  : 37
+Release  : 38
 URL      : http://pypi.debian.net/Werkzeug/Werkzeug-0.12.2.tar.gz
 Source0  : http://pypi.debian.net/Werkzeug/Werkzeug-0.12.2.tar.gz
 Summary  : The Swiss Army knife of Python web development
 Group    : Development/Tools
 License  : BSD-3-Clause OFL-1.1
+Requires: Werkzeug-legacypython
 Requires: Werkzeug-python
 Requires: termcolor
 BuildRequires : pbr
@@ -19,15 +20,37 @@ BuildRequires : python3-dev
 BuildRequires : setuptools
 
 %description
-=================
-Werkzeug Examples
-=================
-This directory contains various example applications and example code of
-Werkzeug powered applications.
+Werkzeug
+        ========
+        
+        Werkzeug started as simple collection of various utilities for WSGI
+        applications and has become one of the most advanced WSGI utility
+        modules.  It includes a powerful debugger, full featured request and
+        response objects, HTTP utilities to handle entity tags, cache control
+        headers, HTTP dates, cookie handling, file uploads, a powerful URL
+        routing system and a bunch of community contributed addon modules.
+        
+        Werkzeug is unicode aware and doesn't enforce a specific template
+        engine, database adapter or anything else.  It doesn't even enforce
+        a specific way of handling requests and leaves all that up to the
+        developer. It's most useful for end user applications which should work
+        on as many server environments as possible (such as blogs, wikis,
+        bulletin boards, etc.).
+        
+        Details and example applications are available on the
+
+%package legacypython
+Summary: legacypython components for the Werkzeug package.
+Group: Default
+
+%description legacypython
+legacypython components for the Werkzeug package.
+
 
 %package python
 Summary: python components for the Werkzeug package.
 Group: Default
+Requires: Werkzeug-legacypython
 Provides: werkzeug-python
 
 %description python
@@ -42,12 +65,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1494949958
+export SOURCE_DATE_EPOCH=1505073982
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1494949958
+export SOURCE_DATE_EPOCH=1505073982
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
@@ -58,7 +81,10 @@ echo ----[ mark ]----
 %files
 %defattr(-,root,root,-)
 
-%files python
+%files legacypython
 %defattr(-,root,root,-)
 /usr/lib/python2*/*
+
+%files python
+%defattr(-,root,root,-)
 /usr/lib/python3*/*

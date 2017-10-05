@@ -4,13 +4,14 @@
 #
 Name     : Werkzeug
 Version  : 0.12.2
-Release  : 38
+Release  : 39
 URL      : http://pypi.debian.net/Werkzeug/Werkzeug-0.12.2.tar.gz
 Source0  : http://pypi.debian.net/Werkzeug/Werkzeug-0.12.2.tar.gz
 Summary  : The Swiss Army knife of Python web development
 Group    : Development/Tools
 License  : BSD-3-Clause OFL-1.1
 Requires: Werkzeug-legacypython
+Requires: Werkzeug-python3
 Requires: Werkzeug-python
 Requires: termcolor
 BuildRequires : pbr
@@ -42,6 +43,7 @@ Werkzeug
 %package legacypython
 Summary: legacypython components for the Werkzeug package.
 Group: Default
+Requires: python-core
 
 %description legacypython
 legacypython components for the Werkzeug package.
@@ -51,10 +53,20 @@ legacypython components for the Werkzeug package.
 Summary: python components for the Werkzeug package.
 Group: Default
 Requires: Werkzeug-legacypython
+Requires: Werkzeug-python3
 Provides: werkzeug-python
 
 %description python
 python components for the Werkzeug package.
+
+
+%package python3
+Summary: python3 components for the Werkzeug package.
+Group: Default
+Requires: python3-core
+
+%description python3
+python3 components for the Werkzeug package.
 
 
 %prep
@@ -65,12 +77,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1505073982
+export SOURCE_DATE_EPOCH=1507181121
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1505073982
+export SOURCE_DATE_EPOCH=1507181121
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
@@ -86,5 +98,8 @@ echo ----[ mark ]----
 /usr/lib/python2*/*
 
 %files python
+%defattr(-,root,root,-)
+
+%files python3
 %defattr(-,root,root,-)
 /usr/lib/python3*/*

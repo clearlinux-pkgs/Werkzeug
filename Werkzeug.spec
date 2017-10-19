@@ -4,7 +4,7 @@
 #
 Name     : Werkzeug
 Version  : 0.12.2
-Release  : 39
+Release  : 40
 URL      : http://pypi.debian.net/Werkzeug/Werkzeug-0.12.2.tar.gz
 Source0  : http://pypi.debian.net/Werkzeug/Werkzeug-0.12.2.tar.gz
 Summary  : The Swiss Army knife of Python web development

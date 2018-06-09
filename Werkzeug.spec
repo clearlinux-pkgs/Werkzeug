@@ -4,7 +4,7 @@
 #
 Name     : Werkzeug
 Version  : 0.14.1
-Release  : 49
+Release  : 50
 URL      : http://pypi.debian.net/Werkzeug/Werkzeug-0.14.1.tar.gz
 Source0  : http://pypi.debian.net/Werkzeug/Werkzeug-0.14.1.tar.gz
 Summary  : The comprehensive WSGI web application library.
@@ -13,10 +13,7 @@ License  : BSD-3-Clause OFL-1.1
 Requires: Werkzeug-python3
 Requires: Werkzeug-python
 Requires: Sphinx
-Requires: coverage
-Requires: pytest
 Requires: termcolor
-Requires: tox
 BuildRequires : pbr
 BuildRequires : pip
 BuildRequires : pluggy
@@ -25,6 +22,7 @@ BuildRequires : pytest
 BuildRequires : python-dev
 BuildRequires : python3-dev
 BuildRequires : setuptools
+BuildRequires : setuptools-legacypython
 BuildRequires : tox
 BuildRequires : virtualenv
 
@@ -71,12 +69,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1519136800
+export SOURCE_DATE_EPOCH=1528564094
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1519136800
+export SOURCE_DATE_EPOCH=1528564094
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force

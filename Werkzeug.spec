@@ -4,13 +4,14 @@
 #
 Name     : Werkzeug
 Version  : 0.14.1
-Release  : 51
+Release  : 52
 URL      : http://pypi.debian.net/Werkzeug/Werkzeug-0.14.1.tar.gz
 Source0  : http://pypi.debian.net/Werkzeug/Werkzeug-0.14.1.tar.gz
 Summary  : The comprehensive WSGI web application library.
 Group    : Development/Tools
 License  : BSD-3-Clause OFL-1.1
 Requires: Werkzeug-python3
+Requires: Werkzeug-license
 Requires: Werkzeug-python
 Requires: Sphinx
 Requires: termcolor
@@ -19,7 +20,6 @@ BuildRequires : pip
 BuildRequires : pluggy
 BuildRequires : py-python
 BuildRequires : pytest
-
 BuildRequires : python3-dev
 BuildRequires : setuptools
 BuildRequires : setuptools-legacypython
@@ -40,6 +40,14 @@ Requires: python-core
 
 %description legacypython
 legacypython components for the Werkzeug package.
+
+
+%package license
+Summary: license components for the Werkzeug package.
+Group: Default
+
+%description license
+license components for the Werkzeug package.
 
 
 %package python
@@ -69,13 +77,16 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1528564094
+export SOURCE_DATE_EPOCH=1529094519
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1528564094
+export SOURCE_DATE_EPOCH=1529094519
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/doc/Werkzeug
+cp LICENSE %{buildroot}/usr/share/doc/Werkzeug/LICENSE
+cp werkzeug/debug/shared/FONT_LICENSE %{buildroot}/usr/share/doc/Werkzeug/werkzeug_debug_shared_FONT_LICENSE
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
 echo ----[ mark ]----
@@ -88,6 +99,11 @@ echo ----[ mark ]----
 %files legacypython
 %defattr(-,root,root,-)
 /usr/lib/python2*/*
+
+%files license
+%defattr(-,root,root,-)
+/usr/share/doc/Werkzeug/LICENSE
+/usr/share/doc/Werkzeug/werkzeug_debug_shared_FONT_LICENSE
 
 %files python
 %defattr(-,root,root,-)

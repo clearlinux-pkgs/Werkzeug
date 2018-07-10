@@ -4,7 +4,7 @@
 #
 Name     : Werkzeug
 Version  : 0.14.1
-Release  : 57
+Release  : 58
 URL      : http://pypi.debian.net/Werkzeug/Werkzeug-0.14.1.tar.gz
 Source0  : http://pypi.debian.net/Werkzeug/Werkzeug-0.14.1.tar.gz
 Summary  : The comprehensive WSGI web application library.

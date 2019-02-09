@@ -4,36 +4,30 @@
 #
 Name     : Werkzeug
 Version  : 0.14.1
-Release  : 60
+Release  : 61
 URL      : http://pypi.debian.net/Werkzeug/Werkzeug-0.14.1.tar.gz
 Source0  : http://pypi.debian.net/Werkzeug/Werkzeug-0.14.1.tar.gz
 Summary  : The comprehensive WSGI web application library.
 Group    : Development/Tools
 License  : BSD-3-Clause OFL-1.1
-Requires: Werkzeug-python3
-Requires: Werkzeug-license
-Requires: Werkzeug-python
-Requires: Sphinx
-Requires: termcolor
-BuildRequires : pbr
-BuildRequires : pip
+Requires: Werkzeug-license = %{version}-%{release}
+Requires: Werkzeug-python = %{version}-%{release}
+Requires: Werkzeug-python3 = %{version}-%{release}
+BuildRequires : buildreq-distutils23
+BuildRequires : buildreq-distutils3
 BuildRequires : pluggy
 BuildRequires : py-python
 BuildRequires : pytest
-BuildRequires : python-core
-BuildRequires : python3-core
-BuildRequires : python3-dev
-BuildRequires : setuptools
 BuildRequires : setuptools-legacypython
 BuildRequires : tox
 BuildRequires : virtualenv
 
 %description
-========
-        
-        Werkzeug is a comprehensive `WSGI`_ web application library. It began as
-        a simple collection of various utilities for WSGI applications and has
-        become one of the most advanced WSGI utility libraries.
+=================
+Werkzeug Examples
+=================
+This directory contains various example applications and example code of
+Werkzeug powered applications.
 
 %package legacypython
 Summary: legacypython components for the Werkzeug package.
@@ -55,7 +49,7 @@ license components for the Werkzeug package.
 %package python
 Summary: python components for the Werkzeug package.
 Group: Default
-Requires: Werkzeug-python3
+Requires: Werkzeug-python3 = %{version}-%{release}
 Provides: werkzeug-python
 
 %description python
@@ -79,16 +73,16 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1530378322
+export SOURCE_DATE_EPOCH=1549687046
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1530378322
+export SOURCE_DATE_EPOCH=1549687046
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/Werkzeug
-cp LICENSE %{buildroot}/usr/share/doc/Werkzeug/LICENSE
-cp werkzeug/debug/shared/FONT_LICENSE %{buildroot}/usr/share/doc/Werkzeug/werkzeug_debug_shared_FONT_LICENSE
+mkdir -p %{buildroot}/usr/share/package-licenses/Werkzeug
+cp LICENSE %{buildroot}/usr/share/package-licenses/Werkzeug/LICENSE
+cp werkzeug/debug/shared/FONT_LICENSE %{buildroot}/usr/share/package-licenses/Werkzeug/werkzeug_debug_shared_FONT_LICENSE
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
 echo ----[ mark ]----
@@ -103,9 +97,9 @@ echo ----[ mark ]----
 /usr/lib/python2*/*
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/Werkzeug/LICENSE
-/usr/share/doc/Werkzeug/werkzeug_debug_shared_FONT_LICENSE
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/Werkzeug/LICENSE
+/usr/share/package-licenses/Werkzeug/werkzeug_debug_shared_FONT_LICENSE
 
 %files python
 %defattr(-,root,root,-)

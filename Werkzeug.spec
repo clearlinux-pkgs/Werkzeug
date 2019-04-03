@@ -4,7 +4,7 @@
 #
 Name     : Werkzeug
 Version  : 0.14.1
-Release  : 62
+Release  : 63
 URL      : http://pypi.debian.net/Werkzeug/Werkzeug-0.14.1.tar.gz
 Source0  : http://pypi.debian.net/Werkzeug/Werkzeug-0.14.1.tar.gz
 Summary  : The comprehensive WSGI web application library.
@@ -13,7 +13,6 @@ License  : BSD-3-Clause OFL-1.1
 Requires: Werkzeug-license = %{version}-%{release}
 Requires: Werkzeug-python = %{version}-%{release}
 Requires: Werkzeug-python3 = %{version}-%{release}
-BuildRequires : buildreq-distutils23
 BuildRequires : buildreq-distutils3
 BuildRequires : pluggy
 BuildRequires : py-python
@@ -28,15 +27,6 @@ Werkzeug Examples
 =================
 This directory contains various example applications and example code of
 Werkzeug powered applications.
-
-%package legacypython
-Summary: legacypython components for the Werkzeug package.
-Group: Default
-Requires: python-core
-
-%description legacypython
-legacypython components for the Werkzeug package.
-
 
 %package license
 Summary: license components for the Werkzeug package.
@@ -73,28 +63,23 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1549687046
-python2 setup.py build -b py2
-python3 setup.py build -b py3
+export SOURCE_DATE_EPOCH=1554330328
+export MAKEFLAGS=%{?_smp_mflags}
+python3 setup.py build
 
 %install
-export SOURCE_DATE_EPOCH=1549687046
+export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/Werkzeug
 cp LICENSE %{buildroot}/usr/share/package-licenses/Werkzeug/LICENSE
 cp werkzeug/debug/shared/FONT_LICENSE %{buildroot}/usr/share/package-licenses/Werkzeug/werkzeug_debug_shared_FONT_LICENSE
-python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
-python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
+python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
 
 %files
 %defattr(-,root,root,-)
-
-%files legacypython
-%defattr(-,root,root,-)
-/usr/lib/python2*/*
 
 %files license
 %defattr(0644,root,root,0755)

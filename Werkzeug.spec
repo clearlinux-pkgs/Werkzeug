@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x7A1C87E3F5BC42A8 (davidism@gmail.com)
 #
 Name     : Werkzeug
-Version  : 0.15.2
-Release  : 65
-URL      : https://files.pythonhosted.org/packages/f3/c8/fa7e1a0283267bee8efa10c665d8dca27e591face7e333c789c85671b3ab/Werkzeug-0.15.2.tar.gz
-Source0  : https://files.pythonhosted.org/packages/f3/c8/fa7e1a0283267bee8efa10c665d8dca27e591face7e333c789c85671b3ab/Werkzeug-0.15.2.tar.gz
-Source99 : https://files.pythonhosted.org/packages/f3/c8/fa7e1a0283267bee8efa10c665d8dca27e591face7e333c789c85671b3ab/Werkzeug-0.15.2.tar.gz.asc
+Version  : 0.15.4
+Release  : 66
+URL      : https://files.pythonhosted.org/packages/59/2d/b24bab64b409e22f026fee6705b035cb0698399a7b69449c49442b30af47/Werkzeug-0.15.4.tar.gz
+Source0  : https://files.pythonhosted.org/packages/59/2d/b24bab64b409e22f026fee6705b035cb0698399a7b69449c49442b30af47/Werkzeug-0.15.4.tar.gz
+Source99 : https://files.pythonhosted.org/packages/59/2d/b24bab64b409e22f026fee6705b035cb0698399a7b69449c49442b30af47/Werkzeug-0.15.4.tar.gz.asc
 Summary  : The comprehensive WSGI web application library.
 Group    : Development/Tools
 License  : BSD-3-Clause OFL-1.1
@@ -59,14 +59,14 @@ python3 components for the Werkzeug package.
 
 
 %prep
-%setup -q -n Werkzeug-0.15.2
+%setup -q -n Werkzeug-0.15.4
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1557023042
+export SOURCE_DATE_EPOCH=1557935827
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -81,6 +81,7 @@ python3 setup.py build
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/Werkzeug
+cp LICENSE.rst %{buildroot}/usr/share/package-licenses/Werkzeug/LICENSE.rst
 cp src/werkzeug/debug/shared/FONT_LICENSE %{buildroot}/usr/share/package-licenses/Werkzeug/src_werkzeug_debug_shared_FONT_LICENSE
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
@@ -92,6 +93,7 @@ echo ----[ mark ]----
 
 %files license
 %defattr(0644,root,root,0755)
+/usr/share/package-licenses/Werkzeug/LICENSE.rst
 /usr/share/package-licenses/Werkzeug/src_werkzeug_debug_shared_FONT_LICENSE
 
 %files python

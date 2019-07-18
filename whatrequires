@@ -2,3 +2,4 @@
 Flask
 pytest-localserver
 responses
+tinyrpc

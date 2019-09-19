@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x7A1C87E3F5BC42A8 (davidism@gmail.com)
 #
 Name     : Werkzeug
-Version  : 0.15.6
-Release  : 69
-URL      : https://files.pythonhosted.org/packages/a3/32/2c91f662d66d4ae8993987b56cd1706a9a526f3ac310dd7fca47d7851533/Werkzeug-0.15.6.tar.gz
-Source0  : https://files.pythonhosted.org/packages/a3/32/2c91f662d66d4ae8993987b56cd1706a9a526f3ac310dd7fca47d7851533/Werkzeug-0.15.6.tar.gz
-Source1 : https://files.pythonhosted.org/packages/a3/32/2c91f662d66d4ae8993987b56cd1706a9a526f3ac310dd7fca47d7851533/Werkzeug-0.15.6.tar.gz.asc
+Version  : 0.16.0
+Release  : 70
+URL      : https://files.pythonhosted.org/packages/5e/fd/eb19e4f6a806cd6ee34900a687f181001c7a0059ff914752091aba84681f/Werkzeug-0.16.0.tar.gz
+Source0  : https://files.pythonhosted.org/packages/5e/fd/eb19e4f6a806cd6ee34900a687f181001c7a0059ff914752091aba84681f/Werkzeug-0.16.0.tar.gz
+Source1 : https://files.pythonhosted.org/packages/5e/fd/eb19e4f6a806cd6ee34900a687f181001c7a0059ff914752091aba84681f/Werkzeug-0.16.0.tar.gz.asc
 Summary  : The comprehensive WSGI web application library.
 Group    : Development/Tools
 License  : BSD-3-Clause OFL-1.1
@@ -59,14 +59,14 @@ python3 components for the Werkzeug package.
 
 
 %prep
-%setup -q -n Werkzeug-0.15.6
+%setup -q -n Werkzeug-0.16.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1567653881
+export SOURCE_DATE_EPOCH=1568915007
 # -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar

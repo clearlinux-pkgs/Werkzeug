@@ -6,7 +6,7 @@
 #
 Name     : Werkzeug
 Version  : 0.16.0
-Release  : 70
+Release  : 71
 URL      : https://files.pythonhosted.org/packages/5e/fd/eb19e4f6a806cd6ee34900a687f181001c7a0059ff914752091aba84681f/Werkzeug-0.16.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/5e/fd/eb19e4f6a806cd6ee34900a687f181001c7a0059ff914752091aba84681f/Werkzeug-0.16.0.tar.gz
 Source1 : https://files.pythonhosted.org/packages/5e/fd/eb19e4f6a806cd6ee34900a687f181001c7a0059ff914752091aba84681f/Werkzeug-0.16.0.tar.gz.asc
@@ -20,16 +20,11 @@ BuildRequires : buildreq-distutils3
 BuildRequires : pluggy
 BuildRequires : py-python
 BuildRequires : pytest
-BuildRequires : setuptools-legacypython
 BuildRequires : tox
 BuildRequires : virtualenv
 
 %description
-Requirements :
-- werkzeug : http://werkzeug.pocoo.org
-- jinja : http://jinja.pocoo.org
-- couchdb 0.72 & above : https://couchdb.apache.org/
-- couchdb-python 0.3 & above : https://github.com/djc/couchdb-python
+========
 
 %package license
 Summary: license components for the Werkzeug package.
@@ -66,8 +61,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1568915007
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1571089290
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -83,8 +77,8 @@ python3 setup.py build
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/Werkzeug
-cp LICENSE.rst %{buildroot}/usr/share/package-licenses/Werkzeug/LICENSE.rst
-cp src/werkzeug/debug/shared/FONT_LICENSE %{buildroot}/usr/share/package-licenses/Werkzeug/src_werkzeug_debug_shared_FONT_LICENSE
+cp %{_builddir}/Werkzeug-0.16.0/LICENSE.rst %{buildroot}/usr/share/package-licenses/Werkzeug/c4dbdbc12926d4d52c9156e690640f372615c234
+cp %{_builddir}/Werkzeug-0.16.0/src/werkzeug/debug/shared/FONT_LICENSE %{buildroot}/usr/share/package-licenses/Werkzeug/81e5605d07c08e95048556f1795931cc038d01e6
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -95,8 +89,8 @@ echo ----[ mark ]----
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/Werkzeug/LICENSE.rst
-/usr/share/package-licenses/Werkzeug/src_werkzeug_debug_shared_FONT_LICENSE
+/usr/share/package-licenses/Werkzeug/81e5605d07c08e95048556f1795931cc038d01e6
+/usr/share/package-licenses/Werkzeug/c4dbdbc12926d4d52c9156e690640f372615c234
 
 %files python
 %defattr(-,root,root,-)

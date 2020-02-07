@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x7A1C87E3F5BC42A8 (davidism@gmail.com)
 #
 Name     : Werkzeug
-Version  : 0.16.1
-Release  : 75
-URL      : https://files.pythonhosted.org/packages/c3/1d/1c0761d9365d166dc9d882a48c437111d22b0df564d6d5768045d9a51fd0/Werkzeug-0.16.1.tar.gz
-Source0  : https://files.pythonhosted.org/packages/c3/1d/1c0761d9365d166dc9d882a48c437111d22b0df564d6d5768045d9a51fd0/Werkzeug-0.16.1.tar.gz
-Source1  : https://files.pythonhosted.org/packages/c3/1d/1c0761d9365d166dc9d882a48c437111d22b0df564d6d5768045d9a51fd0/Werkzeug-0.16.1.tar.gz.asc
+Version  : 1.0.0
+Release  : 76
+URL      : https://files.pythonhosted.org/packages/4b/a5/781dbff5062f31e8407242ea2e07c05eb4f3a236f59124ef46f5e92a2776/Werkzeug-1.0.0.tar.gz
+Source0  : https://files.pythonhosted.org/packages/4b/a5/781dbff5062f31e8407242ea2e07c05eb4f3a236f59124ef46f5e92a2776/Werkzeug-1.0.0.tar.gz
+Source1  : https://files.pythonhosted.org/packages/4b/a5/781dbff5062f31e8407242ea2e07c05eb4f3a236f59124ef46f5e92a2776/Werkzeug-1.0.0.tar.gz.asc
 Summary  : The comprehensive WSGI web application library.
 Group    : Development/Tools
 License  : BSD-3-Clause OFL-1.1
@@ -58,15 +58,15 @@ python3 components for the Werkzeug package.
 
 
 %prep
-%setup -q -n Werkzeug-0.16.1
-cd %{_builddir}/Werkzeug-0.16.1
+%setup -q -n Werkzeug-1.0.0
+cd %{_builddir}/Werkzeug-1.0.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1580143419
+export SOURCE_DATE_EPOCH=1581054779
 # -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
@@ -83,8 +83,8 @@ python3 setup.py build
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/Werkzeug
-cp %{_builddir}/Werkzeug-0.16.1/LICENSE.rst %{buildroot}/usr/share/package-licenses/Werkzeug/c4dbdbc12926d4d52c9156e690640f372615c234
-cp %{_builddir}/Werkzeug-0.16.1/src/werkzeug/debug/shared/FONT_LICENSE %{buildroot}/usr/share/package-licenses/Werkzeug/81e5605d07c08e95048556f1795931cc038d01e6
+cp %{_builddir}/Werkzeug-1.0.0/LICENSE.rst %{buildroot}/usr/share/package-licenses/Werkzeug/c4dbdbc12926d4d52c9156e690640f372615c234
+cp %{_builddir}/Werkzeug-1.0.0/src/werkzeug/debug/shared/FONT_LICENSE %{buildroot}/usr/share/package-licenses/Werkzeug/81e5605d07c08e95048556f1795931cc038d01e6
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :

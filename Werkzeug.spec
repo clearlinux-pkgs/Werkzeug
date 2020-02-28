@@ -6,7 +6,7 @@
 #
 Name     : Werkzeug
 Version  : 1.0.0
-Release  : 76
+Release  : 77
 URL      : https://files.pythonhosted.org/packages/4b/a5/781dbff5062f31e8407242ea2e07c05eb4f3a236f59124ef46f5e92a2776/Werkzeug-1.0.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/4b/a5/781dbff5062f31e8407242ea2e07c05eb4f3a236f59124ef46f5e92a2776/Werkzeug-1.0.0.tar.gz
 Source1  : https://files.pythonhosted.org/packages/4b/a5/781dbff5062f31e8407242ea2e07c05eb4f3a236f59124ef46f5e92a2776/Werkzeug-1.0.0.tar.gz.asc
@@ -52,6 +52,7 @@ python components for the Werkzeug package.
 Summary: python3 components for the Werkzeug package.
 Group: Default
 Requires: python3-core
+Provides: pypi(Werkzeug)
 
 %description python3
 python3 components for the Werkzeug package.
@@ -66,7 +67,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1581054779
+export SOURCE_DATE_EPOCH=1582903032
 # -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar

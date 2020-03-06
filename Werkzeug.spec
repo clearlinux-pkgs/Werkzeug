@@ -6,7 +6,7 @@
 #
 Name     : Werkzeug
 Version  : 1.0.0
-Release  : 77
+Release  : 78
 URL      : https://files.pythonhosted.org/packages/4b/a5/781dbff5062f31e8407242ea2e07c05eb4f3a236f59124ef46f5e92a2776/Werkzeug-1.0.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/4b/a5/781dbff5062f31e8407242ea2e07c05eb4f3a236f59124ef46f5e92a2776/Werkzeug-1.0.0.tar.gz
 Source1  : https://files.pythonhosted.org/packages/4b/a5/781dbff5062f31e8407242ea2e07c05eb4f3a236f59124ef46f5e92a2776/Werkzeug-1.0.0.tar.gz.asc
@@ -24,11 +24,7 @@ BuildRequires : tox
 BuildRequires : virtualenv
 
 %description
-Requirements :
-- werkzeug : http://werkzeug.pocoo.org
-- jinja : http://jinja.pocoo.org
-- couchdb 0.72 & above : https://couchdb.apache.org/
-- couchdb-python 0.3 & above : https://github.com/djc/couchdb-python
+========
 
 %package license
 Summary: license components for the Werkzeug package.
@@ -52,7 +48,7 @@ python components for the Werkzeug package.
 Summary: python3 components for the Werkzeug package.
 Group: Default
 Requires: python3-core
-Provides: pypi(Werkzeug)
+Provides: pypi(werkzeug)
 
 %description python3
 python3 components for the Werkzeug package.
@@ -67,8 +63,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1582903032
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1583521578
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib

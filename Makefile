@@ -1,5 +1,5 @@
 PKG_NAME := Werkzeug
-URL = https://files.pythonhosted.org/packages/4b/a5/781dbff5062f31e8407242ea2e07c05eb4f3a236f59124ef46f5e92a2776/Werkzeug-1.0.0.tar.gz
+URL = https://files.pythonhosted.org/packages/10/27/a33329150147594eff0ea4c33c2036c0eadd933141055be0ff911f7f8d04/Werkzeug-1.0.1.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common

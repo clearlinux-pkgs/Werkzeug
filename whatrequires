@@ -3,4 +3,4 @@ Flask
 ceph
 pytest-localserver
 responses
-tinyrpc
+tensorboard
